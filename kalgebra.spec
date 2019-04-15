@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kalgebra
-Version  : 18.12.2
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.12.2/src/kalgebra-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/kalgebra-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/kalgebra-18.12.2.tar.xz.sig
+Version  : 18.12.3
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.3/src/kalgebra-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/kalgebra-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/kalgebra-18.12.3.tar.xz.sig
 Summary  : Graph Calculator
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.0
@@ -70,14 +70,14 @@ locales components for the kalgebra package.
 
 
 %prep
-%setup -q -n kalgebra-18.12.2
+%setup -q -n kalgebra-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555321589
+export SOURCE_DATE_EPOCH=1555342414
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -85,7 +85,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555321589
+export SOURCE_DATE_EPOCH=1555342414
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kalgebra
 cp COPYING %{buildroot}/usr/share/package-licenses/kalgebra/COPYING
@@ -153,6 +153,12 @@ popd
 /usr/share/doc/HTML/ca/kalgebra/commands.docbook
 /usr/share/doc/HTML/ca/kalgebra/index.cache.bz2
 /usr/share/doc/HTML/ca/kalgebra/index.docbook
+/usr/share/doc/HTML/ca/kalgebra/kalgebra-2dgraph-window.png
+/usr/share/doc/HTML/ca/kalgebra/kalgebra-3dgraph-window.png
+/usr/share/doc/HTML/ca/kalgebra/kalgebra-console-window.png
+/usr/share/doc/HTML/ca/kalgebra/kalgebra-dictionary-window.png
+/usr/share/doc/HTML/ca/kalgebra/kalgebra-main-window.png
+/usr/share/doc/HTML/ca/kalgebra/view-fullscreen.png
 /usr/share/doc/HTML/de/kalgebra/commands.docbook
 /usr/share/doc/HTML/de/kalgebra/index.cache.bz2
 /usr/share/doc/HTML/de/kalgebra/index.docbook
