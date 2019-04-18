@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kalgebra
-Version  : 18.12.3
-Release  : 2
-URL      : https://download.kde.org/stable/applications/18.12.3/src/kalgebra-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/kalgebra-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/kalgebra-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 3
+URL      : https://download.kde.org/stable/applications/19.04.0/src/kalgebra-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/kalgebra-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/kalgebra-19.04.0.tar.xz.sig
 Summary  : Graph Calculator
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.0
@@ -70,14 +70,14 @@ locales components for the kalgebra package.
 
 
 %prep
-%setup -q -n kalgebra-18.12.3
+%setup -q -n kalgebra-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555342414
+export SOURCE_DATE_EPOCH=1555601521
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -85,7 +85,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555342414
+export SOURCE_DATE_EPOCH=1555601521
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kalgebra
 cp COPYING %{buildroot}/usr/share/package-licenses/kalgebra/COPYING
@@ -127,18 +127,11 @@ popd
 /usr/share/kalgebramobile/plugins/kalgebraplot3d.json
 /usr/share/kalgebramobile/plugins/kalgebratables.json
 /usr/share/kalgebramobile/plugins/kalgebravariables.json
-/usr/share/kalgebramobile/plugins/widgets/Action.qml
 /usr/share/kalgebramobile/plugins/widgets/AddButton.qml
-/usr/share/kalgebramobile/plugins/widgets/Button.qml
-/usr/share/kalgebramobile/plugins/widgets/CalcButton.qml
-/usr/share/kalgebramobile/plugins/widgets/ComboBox.qml
-/usr/share/kalgebramobile/plugins/widgets/Dialog.qml
 /usr/share/kalgebramobile/plugins/widgets/ExpressionInput.qml
 /usr/share/kalgebramobile/plugins/widgets/KAlgebraMobile.qml
 /usr/share/kalgebramobile/plugins/widgets/KAlgebraPage.qml
-/usr/share/kalgebramobile/plugins/widgets/Label.qml
 /usr/share/kalgebramobile/plugins/widgets/RealInput.qml
-/usr/share/kalgebramobile/plugins/widgets/SimpleListView.qml
 /usr/share/kalgebramobile/plugins/widgets/qmldir
 /usr/share/katepart5/syntax/kalgebra.xml
 /usr/share/kservices5/graphsplasmoid.desktop
