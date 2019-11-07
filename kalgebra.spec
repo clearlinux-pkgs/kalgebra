@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kalgebra
-Version  : 19.08.2
-Release  : 10
-URL      : https://download.kde.org/stable/applications/19.08.2/src/kalgebra-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/kalgebra-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/kalgebra-19.08.2.tar.xz.sig
+Version  : 19.08.3
+Release  : 11
+URL      : https://download.kde.org/stable/applications/19.08.3/src/kalgebra-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/kalgebra-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/kalgebra-19.08.3.tar.xz.sig
 Summary  : Graph Calculator
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.0
@@ -70,14 +70,14 @@ locales components for the kalgebra package.
 
 
 %prep
-%setup -q -n kalgebra-19.08.2
+%setup -q -n kalgebra-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570736546
+export SOURCE_DATE_EPOCH=1573160098
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -94,13 +94,13 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570736546
+export SOURCE_DATE_EPOCH=1573160098
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kalgebra
-cp COPYING %{buildroot}/usr/share/package-licenses/kalgebra/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kalgebra/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kalgebra/COPYING.LIB
-cp cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kalgebra/cmake_COPYING-CMAKE-SCRIPTS
+cp %{_builddir}/kalgebra-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/kalgebra/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kalgebra-19.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kalgebra/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kalgebra-19.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kalgebra/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kalgebra-19.08.3/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kalgebra/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -208,10 +208,10 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kalgebra/COPYING
-/usr/share/package-licenses/kalgebra/COPYING.DOC
-/usr/share/package-licenses/kalgebra/COPYING.LIB
-/usr/share/package-licenses/kalgebra/cmake_COPYING-CMAKE-SCRIPTS
+/usr/share/package-licenses/kalgebra/1bd373e4851a93027ba70064bd7dbdc6827147e1
+/usr/share/package-licenses/kalgebra/4cc77b90af91e615a64ae04893fdffa7939db84c
+/usr/share/package-licenses/kalgebra/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+/usr/share/package-licenses/kalgebra/ff3ed70db4739b3c6747c7f624fe2bad70802987
 
 %files locales -f kalgebra.lang -f plasma_applet_kalgebraplasmoid.lang -f kalgebramobile.lang
 %defattr(-,root,root,-)
