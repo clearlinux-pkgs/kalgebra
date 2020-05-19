@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kalgebra
-Version  : 20.04.0
-Release  : 16
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/kalgebra-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kalgebra-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kalgebra-20.04.0.tar.xz.sig
-Summary  : Graph Calculator
+Version  : 20.04.1
+Release  : 17
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/kalgebra-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/kalgebra-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/kalgebra-20.04.1.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.0
 Requires: kalgebra-bin = %{version}-%{release}
@@ -20,8 +20,11 @@ Requires: kalgebra-locales = %{version}-%{release}
 BuildRequires : analitza-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
+BuildRequires : kirigami2-dev
 BuildRequires : ncurses-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtsvg-dev
 BuildRequires : qtwebengine-dev
 
 %description
@@ -70,38 +73,37 @@ locales components for the kalgebra package.
 
 
 %prep
-%setup -q -n kalgebra-20.04.0
-cd %{_builddir}/kalgebra-20.04.0
+%setup -q -n kalgebra-20.04.1
+cd %{_builddir}/kalgebra-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587674804
+export SOURCE_DATE_EPOCH=1589847271
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587674804
+export SOURCE_DATE_EPOCH=1589847271
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kalgebra
-cp %{_builddir}/kalgebra-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/kalgebra/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kalgebra-20.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kalgebra/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kalgebra-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kalgebra/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-cp %{_builddir}/kalgebra-20.04.0/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kalgebra/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/kalgebra-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/kalgebra/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kalgebra-20.04.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kalgebra/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kalgebra-20.04.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kalgebra/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kalgebra-20.04.1/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kalgebra/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
