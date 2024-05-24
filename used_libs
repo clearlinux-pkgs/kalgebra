@@ -1,7 +1,7 @@
-libAnalitza.so.8
-libAnalitzaGui.so.8
-libAnalitzaPlot.so.8
-libAnalitzaWidgets.so.8
+libAnalitza.so.9
+libAnalitzaGui.so.9
+libAnalitzaPlot.so.9
+libAnalitzaWidgets.so.9
 libKF6ColorScheme.so.6
 libKF6ConfigCore.so.6
 libKF6ConfigWidgets.so.6
