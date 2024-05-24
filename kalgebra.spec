@@ -9,7 +9,7 @@
 #
 Name     : kalgebra
 Version  : 24.02.2
-Release  : 25
+Release  : 26
 URL      : https://download.kde.org/stable/release-service/24.02.2/src/kalgebra-24.02.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.02.2/src/kalgebra-24.02.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.02.2/src/kalgebra-24.02.2.tar.xz.sig
