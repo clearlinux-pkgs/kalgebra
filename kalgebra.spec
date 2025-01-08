@@ -9,7 +9,7 @@
 #
 Name     : kalgebra
 Version  : 24.12.0
-Release  : 36
+Release  : 37
 URL      : https://download.kde.org/stable/release-service/24.12.0/src/kalgebra-24.12.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.12.0/src/kalgebra-24.12.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.12.0/src/kalgebra-24.12.0.tar.xz.sig
